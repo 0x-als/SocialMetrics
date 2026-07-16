@@ -1,0 +1,57 @@
+.circle-metrics h2 {
+    color: #c8d0e0;
+    font-size: 18px;
+    margin-bottom: 24px;
+    text-align: center;
+}
+
+.charts-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 24px;
+    justify-content: center;
+    width: 100%;
+}
+
+.chart-item {
+    background: #1a1d23;
+    border-radius: 12px;
+    border: 2px solid #23262d;
+    padding: 20px;
+    flex: 1;
+    min-width: 280px;
+    max-width: 340px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.chart-item canvas {
+    width: 100% !important;
+    max-width: 260px;
+    height: 260px !important;
+    margin: 12px auto;
+}
+
+.chart-item h3 {
+    color: #4cc9f0;
+    font-size: 17px;
+    margin-bottom: 12px;
+}
+
+.loading-item {
+    width: 48px;
+    height: 48px;
+    border: 5px solid #23262d;
+    border-top: 5px solid #4cc9f0;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}

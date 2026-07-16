@@ -1,10 +1,40 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
-</head>
-<body>
-$END$
-</body>
-</html>
+<div class="line-metrics">
+    <div class="line-metrics-header">
+        <h2>Линейная статистика</h2>
+
+        <div class="line-metrics-controls">
+            <label>
+                Пользователь:
+                <select id="line-user-id"></select>
+            </label>
+
+            <label>
+                Метрика:
+                <select id="line-metric">
+                    <option value="likes">Лайки</option>
+                    <option value="views_picture">Просмотры фото</option>
+                    <option value="views_video">Просмотры видео</option>
+                    <option value="saves">Сохранения</option>
+                    <option value="reposts">Репосты</option>
+                    <option value="comments_count">Комментарии</option>
+                </select>
+            </label>
+
+            <label>
+                С даты:
+                <input type="date" id="line-date-from">
+            </label>
+
+            <label>
+                По дату:
+                <input type="date" id="line-date-to">
+            </label>
+
+            <button id="line-load-btn" class="btn-primary">Показать</button>
+        </div>
+    </div>
+
+    <div class="line-metrics-chart">
+        <canvas id="line-metrics-canvas"></canvas>
+    </div>
+</div>

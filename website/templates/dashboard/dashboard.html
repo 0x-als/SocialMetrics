@@ -2,7 +2,21 @@
 
 {% block page_title %}Dashboard{% endblock %}
 
+{% block head %}
+    <link rel="stylesheet" href="{{ url_for('static', path='css/dashboard/line_metrics.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', path='css/dashboard/circle_metrics.css') }}">
+{% endblock %}
+
 {% block content %}
-    <h1>Добро пожаловать!</h1>
-    <div class="panel">Контент...</div>
+
+    <div id="circle-metrics-container"></div>
+    <div id="line-metrics-container"></div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <script src="{{ url_for('static', path='js/dashboard/dashboard.js') }}"></script>
+    <script src="{{ url_for('static', path='js/dashboard/circle_metrics.js') }}"></script>
+    <script src="{{ url_for('static', path='js/dashboard/circle_metrics_loaded.js') }}"></script>
+    <script src="{{ url_for('static', path='js/dashboard/line_metrics.js') }}"></script>
+
 {% endblock %}

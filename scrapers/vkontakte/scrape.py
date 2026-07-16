@@ -432,7 +432,6 @@ class ScraperVkontakteMetadata:
 
             if data_metadata:
                 logger.info(f"Successfully processed {len(data_metadata)} items. Saving to database.")
-                print(data_metadata)
                 await init_database.item_metadata_repo.save_metadata(data_metadata)
                 await init_database.network_item_repo.update_published_at(data_metadata)
             else:

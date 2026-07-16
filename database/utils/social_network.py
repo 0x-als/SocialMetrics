@@ -106,3 +106,33 @@ class SocialNetworksRepo:
         except Exception as ex:
             logger.exception(ex)
             return False
+
+    async def get_users_for_line_metrics(self):
+        logger = logger_config(
+            name="get_users_for_line_metrics",
+            log_file=self.log_file
+        )
+
+        try:
+            async with get_session() as session:
+                q = (
+                    select(
+                        SocialNetworks._user_id.label("user_id"),
+                        SocialNetworks.username.label("username")
+                    )
+                    .where(SocialNetworks.status == True)
+                    .group_by(SocialNetworks._user_id, SocialNetworks.username)
+                    .order_by(SocialNetworks.username)
+                )
+
+                result = await session.execute(q)
+                rows = result.all()
+
+                return [
+                    {"user_id": row.user_id, "username": row.username}
+                    for row in rows
+                ]
+
+        except Exception as ex:
+            logger.exception(ex)
+            return []
