@@ -3,20 +3,41 @@
 {% block page_title %}Dashboard{% endblock %}
 
 {% block head %}
+    <link rel="stylesheet" href="{{ url_for('static', path='css/dashboard/widget.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', path='css/dashboard/line_metrics.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', path='css/dashboard/circle_metrics.css') }}">
 {% endblock %}
 
 {% block content %}
 
-    <div id="circle-metrics-container"></div>
-    <div id="line-metrics-container"></div>
+    <div class="dashboard-widget">
+
+        {% with id="circle-loader", text="Загружаем статистику..." %}
+            {% include "loader.html" %}
+        {% endwith %}
+
+        <div id="circle-metrics-container" class="dashboard-widget-content"></div>
+
+    </div>
+
+
+    <div class="dashboard-widget">
+
+        {% with id="line-loader", text="Загружаем графики..." %}
+            {% include "loader.html" %}
+        {% endwith %}
+
+        <div id="line-metrics-container" class="dashboard-widget-content"></div>
+
+    </div>
 
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
-    <script src="{{ url_for('static', path='js/dashboard/dashboard.js') }}"></script>
+    <script src="{{ url_for('static', path='js/components/loader.js') }}"></script>
+    <script src="{{ url_for('static', path='js/components/component_loader.js') }}"></script>
+
     <script src="{{ url_for('static', path='js/dashboard/circle_metrics.js') }}"></script>
-    <script src="{{ url_for('static', path='js/dashboard/circle_metrics_loaded.js') }}"></script>
     <script src="{{ url_for('static', path='js/dashboard/line_metrics.js') }}"></script>
+    <script src="{{ url_for('static', path='js/dashboard/dashboard.js') }}"></script>
 
 {% endblock %}

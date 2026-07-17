@@ -8,4 +8,5 @@ templates.env.loader = ChoiceLoader([
     FileSystemLoader("website/templates/social_network"),
     FileSystemLoader("website/templates/login"),
     FileSystemLoader("website/templates/settings"),
+    FileSystemLoader("website/templates/components"),
 ])

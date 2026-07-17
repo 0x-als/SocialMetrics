@@ -98,17 +98,13 @@ class MetricsRepo:
             logger.exception(ex)
             return []
 
-    async def get_line_metrics(self, user_id: int, metric: str, date_from: date,date_to: date):
-        logger = logger_config(
-            name="get_line_metrics",
-            log_file=self.log_file
-        )
+    async def get_line_metrics(self, user_id: int, type: str, metric: str, date_from: date, date_to: date):
+        logger = logger_config(name="get_line_metrics", log_file=self.log_file)
 
         try:
             async with get_session() as session:
 
                 im = aliased(ItemMetadata)
-
                 metric_column = getattr(im, metric)
 
                 latest_metadata = (
@@ -117,23 +113,15 @@ class MetricsRepo:
                         func.date(ItemMetadata.created_at).label("day"),
                         func.max(ItemMetadata.created_at).label("max_created_at")
                     )
-                    .join(
-                        NetworkItems,
-                        NetworkItems.id == ItemMetadata._item_id
-                    )
-                    .join(
-                        SocialNetworks,
-                        SocialNetworks.id == NetworkItems._network_id
-                    )
+                    .join(NetworkItems, NetworkItems.id == ItemMetadata._item_id)
+                    .join(SocialNetworks, SocialNetworks.id == NetworkItems._network_id)
                     .where(
                         SocialNetworks._user_id == user_id,
+                        SocialNetworks.type == type,
                         func.date(ItemMetadata.created_at) >= date_from,
                         func.date(ItemMetadata.created_at) <= date_to
                     )
-                    .group_by(
-                        ItemMetadata._item_id,
-                        func.date(ItemMetadata.created_at)
-                    )
+                    .group_by(ItemMetadata._item_id, func.date(ItemMetadata.created_at))
                     .subquery()
                 )
 
@@ -156,16 +144,8 @@ class MetricsRepo:
 
                 result = await session.execute(query)
 
-                points = []
-
-                for row in result:
-                    points.append({
-                        "day": row.day.isoformat(),
-                        "value": int(row.value or 0)
-                    })
-                return {
-                    "points": points
-                }
+                points = [{"day": row.day.isoformat(), "value": int(row.value or 0)} for row in result]
+                return {"points": points}
 
         except Exception as ex:
             logger.exception(ex)

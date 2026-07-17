@@ -1,9 +1,10 @@
-.circle-metrics h2 {
-    color: #c8d0e0;
-    font-size: 18px;
-    margin-bottom: 24px;
-    text-align: center;
+.circle-metrics {
+    background: #12151b;
+    border-radius: 12px;
+    border: 2px solid #23262d;
+    margin-top: 24px;
 }
+
 
 .charts-row {
     display: flex;
@@ -14,9 +15,6 @@
 }
 
 .chart-item {
-    background: #1a1d23;
-    border-radius: 12px;
-    border: 2px solid #23262d;
     padding: 20px;
     flex: 1;
     min-width: 280px;
@@ -52,6 +50,10 @@
 }
 
 @keyframes spin {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
 }
