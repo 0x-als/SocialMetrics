@@ -1,0 +1,31 @@
+<div class="card">
+    <div class="card-header">
+        <h2>Прокси</h2>
+        <div class="header-actions">
+            <button class="btn-excel" onclick="downloadProxiesExcel()">
+                ↓ Скачать Excel
+            </button>
+            <button class="btn-excel" onclick="uploadProxiesExcel()">
+                ↑ Загрузить Excel
+            </button>
+            <button class="add-btn" onclick="openModal('proxyModal')">
+                +
+            </button>
+        </div>
+    </div>
+    <div class="table-wrapper">
+        <table class="styled-table">
+            <thead>
+            <tr>
+                <th>Хост:Порт</th>
+                <th>Тип</th>
+                <th>Логин</th>
+                <th>Статус</th>
+                <th>дата добавления</th>
+                <th></th>
+            </tr>
+            </thead>
+            <tbody id="proxyTableBody"></tbody>
+        </table>
+    </div>
+</div>

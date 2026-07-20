@@ -8,7 +8,7 @@ from website.routes.social_network import social_network
 from website.routes.dashboard import dashboard
 from website.routes.login import login
 from website.routes.logout import logout
-from website.routes.settings import scrape_accounts, settings, telegram_bots, proxies
+from website.routes.settings import scrape_accounts, settings, telegram_bots, proxies, users as settung_users
 from website.routes.users import users
 
 app = FastAPI()
@@ -24,5 +24,6 @@ app.include_router(scrape_accounts.route)
 app.include_router(telegram_bots.route)
 app.include_router(social_network.route)
 app.include_router(proxies.route)
+app.include_router(settung_users.route)
 app.include_router(users.route)
 app.middleware("http")(middleware)

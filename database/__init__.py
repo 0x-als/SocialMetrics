@@ -1,6 +1,7 @@
 from database.utils.metadata import *
 from database.utils.metrics import MetricsRepo
 from database.utils.network_items import *
+from database.utils.roles import RolesRepo
 from database.utils.scrape_accounts import *
 from database.utils.session import *
 from database.utils.users import *
@@ -32,6 +33,7 @@ class INITDatabase:
         self.telegram_repo = TelegramRepo()
         self.vkontakte_repo = VkontakteRepo()
         self.instagram_repo = InstagramRepo()
+        self.roles_repo = RolesRepo()
 
 
 init_database = INITDatabase()

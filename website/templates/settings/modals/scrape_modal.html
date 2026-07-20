@@ -1,0 +1,154 @@
+<div id="scrapeModal" class="modal">
+
+    <div class="modal-content">
+
+        <span class="modal-close" onclick="closeModal('scrapeModal')">
+            ✕
+        </span>
+
+
+        <h2 id="modalTitle">
+            Добавить аккаунт
+        </h2>
+
+
+        <select id="platformSelect" onchange="toggleFields()">
+
+            <option value="">
+                Выберите платформу
+            </option>
+
+            <option value="vk">
+                VK
+            </option>
+
+            <option value="youtube">
+                YouTube
+            </option>
+
+            <option value="telegram">
+                Telegram
+            </option>
+
+        </select>
+
+
+        <div id="vkFields" class="platform-fields">
+
+            <div id="vkInputFields">
+
+                <input
+                    type="text"
+                    id="vkClientId"
+                    placeholder="Client ID"
+                >
+
+                <input
+                    type="text"
+                    id="vkApiKey"
+                    placeholder="API Key"
+                >
+
+            </div>
+
+
+            <img
+                id="vkQrImage"
+                style="
+                width:100%;
+                max-width:420px;
+                display:none;
+                margin:20px auto 10px auto;
+                border-radius:12px;
+                box-shadow:0 0 20px rgba(0,0,0,0.4);
+                "
+            >
+
+
+            <p
+                id="vkStatusText"
+                style="
+                margin-top:10px;
+                font-size:15px;
+                color:#ccc;
+                text-align:center;
+                display:none;
+                "
+            ></p>
+
+        </div>
+
+
+        <div id="youtubeFields" class="platform-fields">
+
+            <input
+                type="text"
+                id="youtubeApiKey"
+                placeholder="API Key"
+            >
+
+        </div>
+
+
+        <div id="telegramFields" class="platform-fields">
+
+
+            <input
+                type="text"
+                id="tgPhone"
+                placeholder="Номер телефона (+79...)"
+            >
+
+
+            <input
+                type="text"
+                id="tgApiId"
+                placeholder="API ID"
+            >
+
+
+            <input
+                type="text"
+                id="tgApiHash"
+                placeholder="API Hash"
+            >
+
+
+            <div id="tgCodeBlock" style="display:none;margin-top:15px;">
+
+                <input
+                    type="text"
+                    id="tgCode"
+                    placeholder="Код подтверждения из Telegram"
+                    maxlength="5"
+                >
+
+            </div>
+
+
+            <div id="tgPasswordBlock" style="display:none;">
+
+                <input
+                    type="password"
+                    id="tgPassword"
+                    placeholder="Пароль Telegram"
+                >
+
+            </div>
+
+
+        </div>
+
+
+        <button
+            type="button"
+            id="submitBtn"
+            class="btn-primary"
+        >
+            Добавить аккаунт
+        </button>
+
+
+    </div>
+
+</div>

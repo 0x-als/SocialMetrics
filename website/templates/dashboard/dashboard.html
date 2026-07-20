@@ -6,6 +6,7 @@
     <link rel="stylesheet" href="{{ url_for('static', path='css/dashboard/widget.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', path='css/dashboard/line_metrics.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', path='css/dashboard/circle_metrics.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', path='css/dashboard/analytics_metrics.css') }}">
 {% endblock %}
 
 {% block content %}
@@ -31,6 +32,16 @@
 
     </div>
 
+    <div class="dashboard-widget">
+
+        {% with id="analytics-loader", text="Анализируем данные..." %}
+            {% include "loader.html" %}
+        {% endwith %}
+
+        <div id="analytics-metrics-container"></div>
+
+    </div>
+
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
     <script src="{{ url_for('static', path='js/components/loader.js') }}"></script>
@@ -40,4 +51,5 @@
     <script src="{{ url_for('static', path='js/dashboard/line_metrics.js') }}"></script>
     <script src="{{ url_for('static', path='js/dashboard/dashboard.js') }}"></script>
 
+    <script src="{{ url_for('static', path='js/dashboard/analytics_metrics.js') }}"></script>
 {% endblock %}

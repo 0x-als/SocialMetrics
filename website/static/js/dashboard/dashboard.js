@@ -15,6 +15,12 @@ document.addEventListener("DOMContentLoaded", () => {
         init: window.initLineMetrics
     });
 
+    registerComponent({
+        url: "/api/dashboard/analytics_metrics",
+        container: "analytics-metrics-container",
+        loader: "analytics-loader",
+        init: window.initAnalyticsMetrics
+    });
 
     loadDashboardComponents();
 

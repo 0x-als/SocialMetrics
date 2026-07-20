@@ -56,8 +56,31 @@ async def line_metrics_data(
     return JSONResponse(content=data)
 
 
-
 @route.get("/api/dashboard/list_social_networks", response_class=JSONResponse)
 async def api_dashboard_list_social_networks(request: Request):
     users = await init_database.social_networks_repo.get_users_for_line_metrics()
     return JSONResponse(content=users)
+
+
+@route.get("/api/dashboard/analytics_metrics", response_class=HTMLResponse)
+async def analytics_metrics(request: Request):
+    return templates.TemplateResponse(
+        request=request,
+        name="analytics_metrics.html"
+    )
+
+
+import asyncio
+
+@route.get("/api/dashboard/analytics_metrics/data", response_class=JSONResponse)
+async def analytics_metrics_data(request: Request):
+    top_accounts, anomalies = await asyncio.gather(
+        init_database.metrics_repo.get_top_accounts(),
+        init_database.metrics_repo.get_anomalies()
+    )
+    return JSONResponse(
+        content={
+            "top_accounts": top_accounts,
+            "anomalies": anomalies
+        }
+    )
