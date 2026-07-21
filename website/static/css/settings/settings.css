@@ -60,24 +60,6 @@ body {
     cursor: pointer;
 }
 
-.btn-primary {
-    background: linear-gradient(90deg, #7b5eff, #4cc9f0);
-    border: none;
-    padding: 11px 24px;
-    border-radius: 8px;
-    color: white;
-    font-weight: 600;
-    font-size: 15px;
-    cursor: pointer;
-    transition: .25s;
-    box-shadow: 0 4px 12px rgba(123, 94, 255, .3);
-}
-
-.btn-primary:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 8px 20px rgba(123, 94, 255, .4);
-}
-
 .btn-right {
     float: right;
     margin-top: 10px;
@@ -87,23 +69,6 @@ body {
     display: flex;
     align-items: center;
     gap: 10px;
-}
-
-.add-btn {
-    width: 34px;
-    height: 34px;
-    border: none;
-    border-radius: 8px;
-    background: linear-gradient(90deg, #7b5eff, #4cc9f0);
-    color: white;
-    font-size: 22px;
-    line-height: 30px;
-    cursor: pointer;
-    transition: .25s;
-}
-
-.add-btn:hover {
-    transform: scale(1.05);
 }
 
 .table-wrapper {
@@ -167,43 +132,6 @@ body {
     border-bottom: none;
 }
 
-.styled-table a {
-    color: #4cc9f0;
-    text-decoration: none;
-}
-
-.styled-table a:hover {
-    text-decoration: underline;
-}
-
-.btn-delete {
-    background: #ff6b6b;
-    color: white;
-    border: none;
-    border-radius: 6px;
-    padding: 7px 14px;
-    cursor: pointer;
-    font-size: 13px;
-}
-
-.btn-delete:hover {
-    background: #ff8585;
-}
-
-.btn-excel {
-    background: #1a1d23;
-    color: #4cc9f0;
-    border: 1px solid #23262d;
-    border-radius: 8px;
-    padding: 8px 14px;
-    cursor: pointer;
-    font-size: 13px;
-    transition: .25s;
-}
-
-.btn-excel:hover {
-    background: #23262d;
-}
 
 .platform-fields {
     display: none;
